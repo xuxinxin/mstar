@@ -1,0 +1,47 @@
+<div class="grid__item" href="#">
+    <h2 class="title title--preview">
+        <a href="<%- url_for(post.path)%>" title="<%= post.title %>">
+            <%= post.title %>
+        </a>
+    </h2>
+    <div class="loader"></div>
+    <% if(post.categories){%>
+        <span class="category"> <%- list_categories(post.categories,{depth:1,show_count:false}) %>
+ </span>
+    <%}%>
+
+    <div class="meta meta--preview">
+        <% if(post.ex){ %>
+            <p class="meta__desc">
+                <a href="<%- url_for(post.path)%>"><%= post.ex %></a>
+            </p>
+        <% } %>
+        <% if(post.tags.length){%>
+            <div class="meta__tag">
+                <%- list_tags(post.tags,{show_count:false, amount:4})%>
+            </div>
+        <%}%>
+
+        <span class="meta__date"><i class="fa fa-calendar-o"></i>
+            <% if(post.date.year() != (new Date()).getFullYear()){ %>
+                <%= date(post.date, 'MMM D, YYYY') %>
+            <%} else {%>
+            <%= date(post.date, 'MMM D') %>
+            <%}%>
+        </span>
+        <span class="meta__reading-time">
+            <a href="<%- url_for(post.path)%>#comments">
+                <i class="fa fa-comments"></i> <span class="<%= post.layout %>-<%= post.slug %>"></span>
+            </a>
+        </span>
+    </div>
+</div>
+<script type="text/javascript">
+    var url = 'http://'+'<%= config.duoshuo_shortname%>'+'.duoshuo.com/api/threads/listPosts.json';
+    var params = {
+        thread_key: '<%= post.layout %>-<%= post.slug %>'
+    }
+    $.get(url,params, function(response){
+        $('.'+response.thread.thread_key).html(response.thread.comments);
+    })
+</script>

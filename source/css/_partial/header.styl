@@ -1,0 +1,34 @@
+.top-bar
+  box-sizing border-box
+  background-color #fff
+  width 100%
+  line-height 1
+  padding 15px 15px 10px
+  display flex
+  align-items center
+  color #7b7b7b
+.top-bar__headline
+  margin 0
+  font-size 0.75em
+
+.search
+  text-align right
+  font-size 0.75em
+  margin-left auto
+  input[type='text']
+    border none
+    outline none
+    width 80%
+  .fa
+    cursor pointer
+    font-weight: bold
+    color #81c483
+    font-size 1.3em
+
+@media screen and (max-width: 599px)
+  .top-bar
+    padding 15px 15px 10px 60px
+
+@media screen and (max-width: 375px)
+  .top-bar__headline
+    display none

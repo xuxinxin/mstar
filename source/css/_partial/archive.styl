@@ -1,0 +1,96 @@
+.archives-wrap
+  margin: block-margin 45px
+
+@media screen and (max-width: 481px)
+  .archives-wrap
+    margin: block-margin 10px block-margin 45px
+    line-height 1.4em
+.archives
+  clearfix()
+
+.archive-year-wrap,
+.archive-category-wrap,
+.archive-tag-wrap
+  font-size: 1.4em
+  margin-bottom: 1em
+  a
+    @extend $link
+
+// .archive-year
+
+.archives
+  margin-left: 15px
+  border-left: 1px solid color-border
+
+// .archive-article
+
+.archive-article-inner
+  padding: 5px 10px 5px 12px
+  margin: 15px 0 15px -2px
+  border-left: 3px solid transparent
+  &:hover
+    border-left-color: black
+
+.archive-article-header
+  h1,h2,h3
+    display inline
+
+
+.archive-article-title
+  @extend $link
+
+.archive-article-footer
+  margin-top: 1em
+
+.archive-article-date
+  color: color-grey
+  text-decoration: none
+  font-size: 0.85em
+  line-height: 1em
+  margin-bottom: 0.5em
+  margin-right 10px
+
+#page-nav
+  clearfix()
+  margin: block-margin 0px
+  text-align: center
+  position relative
+  a, span
+    width: 36px
+    height: 36px
+    margin: 0 5px
+    line-height: 36px
+    text-align: center
+    outline none
+    color inherit
+  a.prev,
+  a.next
+    margin: 0
+    border-radius 30px
+    border 2px solid #f7edde
+    width: 80px
+    position absolute
+  a:hover,a:focus
+    border-color #c4c9bb
+  .prev
+    left: 45px
+  .next
+    right 45px
+  .page-number
+    display: inline-block
+    @media mq-mobile
+      display: none
+  .current
+    color: #fff
+    border-radius: 18px
+    background-color: #604721
+  .space
+    color: color-border
+
+#comments
+  margin 0 45px
+  .ds-meta
+    display none
+  #ds-thread #ds-reset li.ds-tab a.ds-current
+    border none
+    background none

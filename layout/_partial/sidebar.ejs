@@ -1,0 +1,28 @@
+<aside id="sidebar">
+    <div class="sidebar-wrap">
+        <button class="hide-button">
+            <i class="fa fa-angle-double-left"></i>
+        </button>
+        <button class="close-button fa fa-fw fa-close"></button>
+        <div class="logo">
+            <span>Star</span>
+            <img src="/images/logo-2.png" alt="LOGO"/>
+        </div>
+        <div class="intro">鲜花与掌声，献给时光</div>
+        <nav id="sidebar-nav">
+            <% for (var i in theme.menu){ %>
+            <a href="<%- url_for(theme.menu[i]) %>"><i class="fa fa-bars"></i><%= i %></a>
+            <% } %>
+        </nav>
+        <div id="sidebar-bottom">
+            <ul class="social">
+                <li><a href=""><i class="fa fa-github"></i></a></li>
+                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                <li><a href=""><i class="fa fa-weibo"></i></a></li>
+                <li><a href=""><i class="fa fa-qq"></i></a></li>
+                <li><a href=""><i class="fa fa-weixin"></i></a></li>
+            </ul>
+            <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+        </div>
+    </div>
+</aside>

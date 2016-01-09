@@ -1,0 +1,11 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container">
+    <div class="wrap">
+      <button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+      <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+      <section id="main" class="outer ml-has-sidebar"><%- body %></section>
+    </div>
+    <%- partial('_partial/after-footer') %>
+  </div>
+</body>
